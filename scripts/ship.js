@@ -7,7 +7,7 @@ class Ship {
 	// increase hits to ship
 	hit() {
 		return (this.numOfHitsReceived += 1);
-	}
+	} // TEST THIS METHOD
 
 	// determine if ship has been sunk or not
 	isSunk() {
@@ -15,7 +15,7 @@ class Ship {
 			return true;
 		}
 		return false;
-	}
+	} // TEST THIS METHOD
 }
 
 const ship1 = new Ship(3, 2);
