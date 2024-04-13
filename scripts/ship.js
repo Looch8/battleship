@@ -10,22 +10,22 @@ class Ship {
 		this.numOfHitsReceived = numOfHitsReceived;
 	}
 
+	// increase hits to ship
 	hit() {
 		return (this.numOfHitsReceived += 1);
 	}
 
+	// determine is ship has been sunk or not
 	isSunk() {
-		this.isSunk = false;
 		if (this.numOfHitsReceived == this.length) {
-			this.isSunk = true;
+			return true;
 		}
+		return false;
 	}
 }
 
 const ship1 = new Ship(3, 2);
 
-// ship1.hit();
-ship1.isSunk();
-console.log(ship1);
+ship1.hit();
 
-// TODO - make isSunk change to true when hits is equals to length
+console.log(ship1.isSunk());
