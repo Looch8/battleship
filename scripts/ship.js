@@ -15,7 +15,7 @@ class Ship {
 			return true;
 		}
 		return false;
-	} // TEST THIS METHOD
+	}
 }
 
 const ship1 = new Ship(3, 2);
@@ -23,3 +23,5 @@ const ship1 = new Ship(3, 2);
 ship1.hit();
 
 console.log(ship1.isSunk());
+
+module.exports = Ship;
