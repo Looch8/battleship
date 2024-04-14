@@ -22,6 +22,6 @@ const ship1 = new Ship(3, 2);
 
 ship1.hit();
 
-console.log(ship1.isSunk());
+// console.log(ship1.isSunk());
 
 module.exports = Ship;
