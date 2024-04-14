@@ -7,7 +7,7 @@ class Ship {
 	// increase hits to ship
 	hit() {
 		return (this.numOfHitsReceived += 1);
-	} // TEST THIS METHOD
+	}
 
 	// determine if ship has been sunk or not
 	isSunk() {
@@ -18,8 +18,10 @@ class Ship {
 	}
 }
 
-const ship1 = new Ship(3, 2);
-
-ship1.hit();
+const destroyer = new Ship(2, 0);
+const submarine = new Ship(3, 0);
+const cruiser = new Ship(3, 0);
+const battleship = new Ship(4, 0);
+const carrier = new Ship(5, 0);
 
 export default Ship;

@@ -7,7 +7,9 @@ import Ship from "./Ship.js";
 // Gameboards should be able to report whether or not all of their ships have been sunk.
 
 class Gameboard {
-	constructor() {}
+	constructor() {
+		// create 10x10 grid
+	}
 }
 
 let ship3 = new Ship(1, 0);
