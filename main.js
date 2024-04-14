@@ -1,5 +1,6 @@
 import "./style.css";
 import Ship from "./scripts/Ship";
+import Gameboard from "./scripts/Gameboard";
 
 console.log("hi");
 

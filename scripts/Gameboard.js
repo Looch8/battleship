@@ -8,11 +8,20 @@ import Ship from "./Ship.js";
 
 class Gameboard {
 	constructor() {
-		// create 10x10 grid
+		// Create  10x10 2D gameboard array
+		this.board = Array.from({ length: 10 }, () =>
+			Array.from({ length: 10 }).fill(null)
+		);
 	}
 }
 
-let ship3 = new Ship(1, 0);
+// place ship by calling ship function
+// receiveAttack functon - takes a pair of coordinates, determine whether or not attack hit a ship and sends the 'hit' function to the correct ship, or records the coordinates of the missed shot
+// keep track of missed attacks so they can display them properly.
+// report whether or not all of their ships have been sunk
 
-console.log(ship3.isSunk());
-console.log(ship3);
+const gameboard = new Gameboard();
+
+console.log(gameboard.board);
+
+export default Gameboard;
