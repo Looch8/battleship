@@ -18,10 +18,4 @@ class Ship {
 	}
 }
 
-const destroyer = new Ship(2, 0);
-const submarine = new Ship(3, 0);
-const cruiser = new Ship(3, 0);
-const battleship = new Ship(4, 0);
-const carrier = new Ship(5, 0);
-
 export default Ship;
