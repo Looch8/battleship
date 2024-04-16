@@ -1,12 +1,12 @@
 class Ship {
 	constructor(length, numOfHitsReceived) {
 		this.length = length;
-		this.numOfHitsReceived = numOfHitsReceived;
+		this.numOfHitsReceived = 0;
 	}
 
 	// increase hits to ship
 	hit() {
-		return (this.numOfHitsReceived += 1);
+		this.numOfHitsReceived++;
 	}
 
 	// determine if ship has been sunk or not

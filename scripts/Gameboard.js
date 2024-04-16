@@ -1,7 +1,5 @@
 import Ship from "./Ship.js";
 
-// Gameboards should have a receiveAttack function that takes a pair of coordinates, determines whether or not the attack hit a ship and then sends the ‘hit’ function to the correct ship, or records the coordinates of the missed shot.
-// Gameboards should keep track of missed attacks so they can display them properly.
 // Gameboards should be able to report whether or not all of their ships have been sunk.
 
 class Gameboard {
@@ -25,24 +23,44 @@ class Gameboard {
 		}
 	}
 
-	receiveAttack() {}
+	receiveAttack(row, col) {
+		const target = this.board[row][col];
+		if (target !== null) {
+			console.log("hit!");
+			target.hit();
+			if (target.isSunk()) {
+				console.log("Ship sunk!");
+			}
+			this.board[row][col] = "hit!";
+		} else {
+			console.log("miss");
+			this.board[row][col] = "miss!";
+		}
+	}
 }
 
-// receiveAttack functon - takes a pair of coordinates, determine whether or not attack hit a ship and sends the 'hit' function to the correct ship, or records the coordinates of the missed shot
-// keep track of missed attacks so they can display them properly.
 // report whether or not all of their ships have been sunk
 
 const gameboard = new Gameboard();
 
 // Ships
-const destroyer = new Ship(2, 0);
-const submarine = new Ship(3, 0);
-const cruiser = new Ship(3, 0);
-const battleship = new Ship(4, 0);
-const carrier = new Ship(5, 0);
+const destroyer = new Ship(2);
+const submarine = new Ship(3);
+const cruiser = new Ship(3);
+const battleship = new Ship(4);
+const carrier = new Ship(5);
 
 gameboard.placeShip(carrier, 0, 3, false);
 gameboard.placeShip(cruiser, 3, 5, true);
+gameboard.receiveAttack(0, 4);
+gameboard.receiveAttack(0, 1);
+gameboard.receiveAttack(0, 5);
+gameboard.receiveAttack(0, 6);
+gameboard.receiveAttack(0, 7);
+gameboard.receiveAttack(0, 3);
+
+console.log(carrier);
+console.log(cruiser);
 
 console.log(gameboard.board);
 
