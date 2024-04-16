@@ -1,7 +1,5 @@
 import Ship from "./Ship.js";
 
-// Gameboards should be able to report whether or not all of their ships have been sunk.
-
 class Gameboard {
 	constructor() {
 		// Create  10x10 2D gameboard array
@@ -42,10 +40,33 @@ class Gameboard {
 			console.log("miss");
 			this.board[row][col] = "miss!";
 		}
+
+		// Check to see if all ships sunk
+		let allShipsSunk = true;
+
+		for (let i = 0; i < this.board.length; i++) {
+			for (let j = 0; j < this.board[i].length; j++) {
+				const cell = this.board[i][j];
+				if (cell instanceof Ship) {
+					if (!cell.isSunk()) {
+						// If any ship is not sunk, set allShipsSunk to false
+						allShipsSunk = false;
+						break; // Exit the inner loop since we found a non-sunk ship
+					}
+				}
+			}
+			if (!allShipsSunk) {
+				break; // Exit the outer loop since we found a non-sunk ship
+			}
+		}
+
+		if (allShipsSunk) {
+			console.log("All ships have been sunk!");
+		} else {
+			console.log("Not all ships have been sunk.");
+		}
 	}
 }
-
-// report whether or not all of their ships have been sunk
 
 const gameboard = new Gameboard();
 
@@ -57,8 +78,6 @@ const battleship = new Ship(4);
 const carrier = new Ship(5);
 
 gameboard.placeShip(carrier, 0, 3, false);
-gameboard.placeShip(cruiser, 3, 5, true);
-gameboard.placeShip(submarine, 7, 7, true);
 
 gameboard.receiveAttack(0, 4);
 gameboard.receiveAttack(0, 1);
