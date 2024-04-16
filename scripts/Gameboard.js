@@ -7,11 +7,16 @@ import Ship from "./Ship.js";
 // Gameboards should be able to report whether or not all of their ships have been sunk.
 
 class Gameboard {
-	constructor() {
+	constructor(ship) {
 		// Create  10x10 2D gameboard array
 		this.board = Array.from({ length: 10 }, () =>
 			Array.from({ length: 10 }).fill(null)
 		);
+		this.ship = ship;
+	}
+
+	placeShip(ship, n1, n2) {
+		this.board[n1][n2] = ship;
 	}
 }
 
@@ -21,7 +26,15 @@ class Gameboard {
 // report whether or not all of their ships have been sunk
 
 const gameboard = new Gameboard();
+const gameboard2 = new Gameboard();
+const destroyer = new Ship(2, 0);
+
+gameboard.placeShip(destroyer, 0, 3);
 
 console.log(gameboard.board);
+console.log(gameboard2.board);
+
+// This is how we select individual coordinates in gameboard array.
+// gameboard2.board[1][3] = "hit";
 
 export default Gameboard;
