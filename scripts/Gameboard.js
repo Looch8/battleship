@@ -12,14 +12,20 @@ class Gameboard {
 
 	// True for vertial, false for horizontal
 	placeShip(ship, row, col, isVertical) {
-		if (isVertical) {
-			for (let i = 0; i < ship.length; i++) {
-				this.board[row + i][col] = ship;
+		// Check if space is empty
+		if (this.board[row][col] == null) {
+			// place ship
+			if (isVertical) {
+				for (let i = 0; i < ship.length; i++) {
+					this.board[row + i][col] = ship;
+				}
+			} else {
+				for (let i = 0; i < ship.length; i++) {
+					this.board[row][col + i] = ship;
+				}
 			}
 		} else {
-			for (let i = 0; i < ship.length; i++) {
-				this.board[row][col + i] = ship;
-			}
+			console.log("cannot place ship there, spot is taken.");
 		}
 	}
 
@@ -52,6 +58,8 @@ const carrier = new Ship(5);
 
 gameboard.placeShip(carrier, 0, 3, false);
 gameboard.placeShip(cruiser, 3, 5, true);
+gameboard.placeShip(submarine, 7, 7, true);
+
 gameboard.receiveAttack(0, 4);
 gameboard.receiveAttack(0, 1);
 gameboard.receiveAttack(0, 5);
