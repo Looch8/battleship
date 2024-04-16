@@ -72,7 +72,4 @@ console.log(cruiser);
 
 console.log(gameboard.board);
 
-// This is how we select individual coordinates in gameboard array.
-// gameboard2.board[1][3] = "hit";
-
 export default Gameboard;
