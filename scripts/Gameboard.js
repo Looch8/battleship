@@ -62,8 +62,6 @@ class Gameboard {
 
 		if (allShipsSunk) {
 			console.log("All ships have been sunk!");
-		} else {
-			console.log("Not all ships have been sunk.");
 		}
 	}
 }
