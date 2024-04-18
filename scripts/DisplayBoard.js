@@ -38,7 +38,6 @@ function displayComputerBoard() {
 displayPlayerBoard();
 displayComputerBoard();
 
-// Place ships on board in DOM
 function populateBoard(user, ship, row, col, isVertical) {
 	// Place the ship on the board
 	user.board.placeShip(ship, row, col, isVertical);
@@ -50,13 +49,15 @@ function populateBoard(user, ship, row, col, isVertical) {
 
 	user.board.board.forEach((row) => {
 		row.forEach((cell) => {
-			const div = document.createElement("div");
-			div.classList =
+			const shipDiv = document.createElement("div");
+			// Set different class names for player and computer cells
+			shipDiv.classList =
 				user === playerBoard
 					? "playerBoardCells"
 					: "computerBoardCells";
-			div.textContent = cell === null ? "" : cell; // Display ship positions or empty cells
-			container.appendChild(div);
+			// Display ship lengths or empty cells
+			shipDiv.textContent = cell instanceof Ship ? cell.length : "";
+			container.appendChild(shipDiv);
 		});
 	});
 }
