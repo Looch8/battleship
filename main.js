@@ -5,6 +5,4 @@ import Player from "./scripts/Player";
 import {
 	displayComputerBoard,
 	displayPlayerBoard,
-} from "./scripts/UserInterface";
-
-const ship = new Ship(5, 1);
+} from "./scripts/DisplayBoard";
