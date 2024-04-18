@@ -68,15 +68,6 @@ class Gameboard {
 
 const gameboard = new Gameboard();
 
-// Ships
-const destroyer = new Ship(2);
-const submarine = new Ship(3);
-const cruiser = new Ship(3);
-const battleship = new Ship(4);
-const carrier = new Ship(5);
-
-gameboard.placeShip(carrier, 0, 3, false);
-
 gameboard.receiveAttack(0, 4);
 gameboard.receiveAttack(0, 1);
 gameboard.receiveAttack(0, 5);

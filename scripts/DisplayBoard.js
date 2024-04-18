@@ -1,4 +1,7 @@
 import Player from "./Player";
+import Gameboard from "./Gameboard";
+import Ship from "./Ship";
+import ships from "./Ships";
 // Import your classes/factories into another file, and drive the game using event listeners to interact with your objects. Create a module that helps you manage actions that should happen in the DOM.
 // At this point it is appropriate to begin crafting your User Interface.
 const container = document.querySelector("#container");
@@ -19,8 +22,6 @@ function displayPlayerBoard() {
 			console.log(cell);
 		});
 	});
-
-	console.log(playerBoard.board);
 }
 
 function displayComputerBoard() {
@@ -33,11 +34,39 @@ function displayComputerBoard() {
 			console.log(cell);
 		});
 	});
-
-	console.log(playerBoard.board);
 }
 displayPlayerBoard();
 displayComputerBoard();
+
+// Place ships on board in DOM
+function populateBoard(user, ship, row, col, isVertical) {
+	// Place the ship on the board
+	user.board.placeShip(ship, row, col, isVertical);
+
+	// Display the updated board with the ship
+	const container =
+		user === playerBoard ? playerContainer : computerContainer;
+	container.innerHTML = ""; // Clear previous content
+
+	user.board.board.forEach((row) => {
+		row.forEach((cell) => {
+			const div = document.createElement("div");
+			div.classList =
+				user === playerBoard
+					? "playerBoardCells"
+					: "computerBoardCells";
+			div.textContent = cell === null ? "" : cell; // Display ship positions or empty cells
+			container.appendChild(div);
+		});
+	});
+}
+
+populateBoard(playerBoard, ships.carrier, 0, 0, true);
+populateBoard(computerBoard, ships.battleship, 3, 0, false);
+populateBoard(computerBoard, ships.destroyer, 6, 1, false);
+
+console.log(playerBoard);
+console.log(computerBoard);
 // We’ll leave the HTML implementation up to you for now, but you should display both the player’s boards and render them using information from the Gameboard class/factory.
 // You’ll need methods to render each player’s Gameboard, so put them in an appropriate module.
 // Your event listeners should step through the game turn by turn using only methods from other objects. If at any point you are tempted to write a new function, step back and figure out which class or module that function should belong to.
