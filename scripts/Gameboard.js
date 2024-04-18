@@ -84,9 +84,4 @@ gameboard.receiveAttack(0, 6);
 gameboard.receiveAttack(0, 7);
 gameboard.receiveAttack(0, 3);
 
-console.log(carrier);
-console.log(cruiser);
-
-console.log(gameboard.board);
-
 export default Gameboard;

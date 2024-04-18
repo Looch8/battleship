@@ -1,0 +1,34 @@
+#container {
+	display: flex;
+	justify-content: center;
+	margin-top: 20%;
+}
+
+h1 {
+	text-align: center;
+}
+.board-container {
+	margin: 10px;
+	width: 325px; /* Adjust width as needed to fit 10 cells */
+	height: 325px; /* Adjust height as needed to fit 10 cells */
+	display: flex;
+	flex-wrap: wrap;
+
+	justify-content: center;
+}
+
+/* CSS styles for the cells in the player board */
+.playerBoardCells {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+
+/* CSS styles for the cells in the computer board */
+.computerBoardCells {
+	width: 30px;
+	height: 30px;
+	border: 1px solid black;
+	box-sizing: border-box;
+}

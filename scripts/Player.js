@@ -7,14 +7,8 @@ import Gameboard from "./Gameboard";
 class Player {
 	constructor(name) {
 		this.name = name;
-		this.gameboard = new Gameboard();
+		this.board = new Gameboard();
 	}
 }
-
-const player = new Player("luke");
-const computer = new Player("computer");
-
-console.log(player);
-console.log(computer);
 
 export default Player;
